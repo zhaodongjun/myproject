@@ -1,7 +1,5 @@
 package com.bbd.yanoos.web.datastructure;
 
-import java.util.Arrays;
-
 /**
  * 二分查找
  * Created by zhaodongjun on 2018/9/3 0003.
