@@ -54,7 +54,7 @@ public class BinarySearch {
         }
     }
 
-    // 查找第一个相等的元素
+    //查找第一个相等的元素，也就是说等于查找key值的元素有好多个，返回这些元素最左边的元素下标。
     static int findFirstEqual(int[] array, int key) {
         int left = 0;
         int right = array.length - 1;
@@ -76,7 +76,7 @@ public class BinarySearch {
         return -1;
     }
 
-    // 查找最后一个相等的元素
+    // 查找最后一个相等的元素，也就是说等于查找key值的元素有好多个，返回这些元素最右边的元素下标。
     static int findLastEqual(int[] array, int key) {
         int left = 0;
         int right = array.length - 1;
@@ -98,7 +98,7 @@ public class BinarySearch {
         return -1;
     }
 
-    // 查找最后一个等于或者小于key的元素
+    // 查找最后一个等于或者小于key的元素，也就是说等于查找key值的元素有好多个，返回这些元素最右边的元素下标；如果没有等于key值的元素，则返回小于key的最右边元素下标。
     static int findLastEqualSmaller(int[] array, int key) {
         int left = 0;
         int right = array.length - 1;
@@ -116,7 +116,7 @@ public class BinarySearch {
         return right;
     }
 
-    // 查找最后一个小于key的元素
+    // 查找最后一个小于key的元素，也就是说返回小于key的最右边元素下标。
     static int findLastSmaller(int[] array, int key) {
         int left = 0;
         int right = array.length - 1;
@@ -134,7 +134,7 @@ public class BinarySearch {
         return right;
     }
 
-    // 查找第一个等于或者大于key的元素
+    // 查找第一个等于或者大于key的元素，也就是说等于查找key值的元素有好多个，返回这些元素最左边的元素下标；如果没有等于key值的元素，则返回大于key的最左边元素下标。
     static int findFirstEqualLarger(int[] array, int key) {
         int left = 0;
         int right = array.length - 1;
@@ -152,7 +152,7 @@ public class BinarySearch {
         return left;
     }
 
-    // 查找第一个大于key的元素
+    // 查找第一个等于key的元素，也就是说返回大于key的最左边元素下标。
     static int findFirstLarger(int[] array, int key) {
         int left = 0;
         int right = array.length - 1;
