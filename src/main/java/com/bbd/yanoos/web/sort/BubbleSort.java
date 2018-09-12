@@ -1,5 +1,7 @@
 package com.bbd.yanoos.web.sort;
 
+import java.util.Arrays;
+
 /**
  * Created by zhaodongjun on 2018/9/6 0006.
  */
@@ -20,7 +22,7 @@ public class BubbleSort {
 
     public static void main(String[] args) {
         int[] arr = {2,4,5,8,7,3,6,1,4};
-        System.out.println("arr[]="+bubbleSort(arr));
+        System.out.println("arr[]="+ Arrays.toString(bubbleSort(arr)));
     }
 }
 
