@@ -10,7 +10,8 @@ public class InsertSortTest {
         int length = arr.length;
         int i,j;
         for(i=1;i<length;i++){
-            for(j=i-1;j>=0&&arr[i]<arr[j];j--){
+            //倒序
+            for(j=i-1;j>=0&&arr[i]>arr[j];j--){
             }
             int tmp = arr[i];
             for(int k=i;k>j+1;k--){
