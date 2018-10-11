@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Created by zhaodongjun on 2018/9/27 0027.
  */
-public class Solution {
+public class ArraySolution {
 
     public static void main(String[] args) {
 //        int[] nums = {0,0,1,1,1,2,2,3,3,4};
@@ -13,7 +13,7 @@ public class Solution {
 //        int[] prices = {7,1,5,3,6,4};
 //        System.out.println("maxProfit="+maxProfit(prices));
         int[] nums = {1,2,3,4,5,6,7};
-        rotate3(nums,2);
+        rotate3(nums,7);
         System.out.println("rotate="+ Arrays.toString(nums));
     }
 
@@ -31,8 +31,31 @@ public class Solution {
 //    rotate 1 steps to the right: [99,-1,-100,3]
 //    rotate 2 steps to the right: [3,99,-1,-100]
 
+    /**
+     * access
+     * O(1)
+     * @param nums
+     * @param k
+     */
     public static void rotate3(int[] nums, int k) {
-
+        if(nums==null || nums.length==0 || nums.length==1 || k<1){
+            return;
+        }
+        int n = nums.length, start = 0, i = 0, cur = nums[i], cnt = 0;
+        if(k%n==0){
+            return;
+        }
+        while (cnt++ < n) {
+            i = (i + k) % n;
+            int t = nums[i];
+            nums[i] = cur;
+            if (i == start) {
+                ++start; ++i;
+                cur = nums[i];
+            } else {
+                cur = t;
+            }
+        }
     }
 
     /**
