@@ -13,7 +13,7 @@ public class Solution {
 //        int[] prices = {7,1,5,3,6,4};
 //        System.out.println("maxProfit="+maxProfit(prices));
         int[] nums = {1,2,3,4,5,6,7};
-        rotate2(nums,2);
+        rotate3(nums,2);
         System.out.println("rotate="+ Arrays.toString(nums));
     }
 
@@ -31,8 +31,25 @@ public class Solution {
 //    rotate 1 steps to the right: [99,-1,-100,3]
 //    rotate 2 steps to the right: [3,99,-1,-100]
 
-    public static void rotate2(int[] nums, int k) {
+    public static void rotate3(int[] nums, int k) {
 
+    }
+
+    /**
+     * access
+     * O(n)
+     * @param nums
+     * @param k
+     */
+    public static void rotate2(int[] nums, int k) {
+        if(nums==null || nums.length==0 || nums.length==1 || k<1){
+            return;
+        }
+        int[] numsNew = Arrays.copyOf(nums,nums.length);
+        for(int i=0;i<nums.length;i++){
+            int index = (i+k)%nums.length;
+            nums[index]=numsNew[i];
+        }
     }
     /**
      * Time Limit Exceeded
@@ -44,7 +61,6 @@ public class Solution {
         if(nums==null || nums.length==0 || nums.length==1 || k<1){
             return;
         }
-        //        int[] nums = {1,2,3,4,5,6,7};
         for(int i=0;i<k;i++){
             int num = nums[nums.length-1];
             for(int j=nums.length-1;j>0;j--){
