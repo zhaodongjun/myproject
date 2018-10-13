@@ -7,8 +7,36 @@ import java.util.Arrays;
  */
 public class StringSolution {
     public static void main(String[] args) {
-        String input = "A man, a plan, a canal: Panama";
-        System.out.println("output="+reverseString2(input));
+//        String input = "A man, a plan, a canal: Panama";
+//        System.out.println("output="+reverseString2(input));
+        int x = -1435343488;
+//        int x = 123;
+        System.out.println("reverse="+reverse(x));
+    }
+
+    public static int reverse(int x) {
+        int INT_MIN = Integer.MIN_VALUE;
+        int INT_MAX = Integer.MAX_VALUE;
+        long res = 0;
+        while (x!=0){
+            res = res*10 + x%10;
+            x /= 10;
+        }
+        if(res > INT_MAX || res <INT_MIN){
+            return 0;
+        }
+        return (int)res;
+    }
+
+    public static int reverseInteger1(int n) {
+        int res = 0;
+        while (n != 0) {
+            int t = res * 10 + n % 10;
+            if (t / 10 != res) return 0;
+            res = t;
+            n /= 10;
+        }
+        return res;
     }
 
     public static String reverseString2(String s) {
