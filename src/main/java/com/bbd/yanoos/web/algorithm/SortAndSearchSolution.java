@@ -13,6 +13,7 @@ public class SortAndSearchSolution {
         nums1[0]=1;
         nums1[1]=2;
         nums1[2]=3;
+
         int[] nums2 = new int[]{2,5,6};
         merge(nums1,3,nums2,3);
         System.out.println("nums1[]="+ Arrays.toString(nums1));
