@@ -21,7 +21,6 @@ public class ArrayAndStringSolution {
      * @return
      */
     public static List<List<Integer>> threeSum(int[] nums) {
-        nums.
         List<List<Integer>> listResult= new ArrayList<>();
         //nums = [-1, 0, 1, 2, -1, -4]
         int length = nums.length;
