@@ -1,7 +1,9 @@
 package com.bbd.yanoos.web.algorithm;
 
+import java.sql.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -10,20 +12,56 @@ import java.util.List;
 public class ArrayAndStringSolution {
     public static void main(String[] args) {
 //        int[] nums = {-1, 0, 1, 2, -1, -4};
-        int[] nums = new int[20000];
-        for(int i=0;i<10000;i++){
-           nums[i] = (int)(Math.random()*-100);
-        }
-        for(int i=10001;i<20000;i++){
-            nums[i] = (int)(Math.random()*100);
-        }
-        List<List<Integer>> lists = threeSum(nums);
+//        int[] nums = new int[20000];
+//        for(int i=0;i<10000;i++){
+//           nums[i] = (int)(Math.random()*-100);
+//        }
+//        for(int i=10001;i<20000;i++){
+//            nums[i] = (int)(Math.random()*100);
+//        }
+//        List<List<Integer>> lists = threeSum(nums);
 //        for(List<Integer> list:lists){
 //            System.out.println("list="+ list.toString());
 //        }
+
+        String[] strs= {"eat", "tea", "tan", "ate", "nat", "bat"};
+        List<List<String>> lists = groupAnagrams(strs);
+        for(List<String> list:lists){
+            System.out.println("list="+list.toString());
+        }
     }
 
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        List<List<String>> listResult = new ArrayList<>();
+        if(strs==null||strs.equals("")){
+            return listResult;
+        }
+        HashMap hashMap = new HashMap();
+        int k=0;
+        for(int i=0;i<strs.length;i++){
+            String str = strs[i];
+            char[] chars = str.toCharArray();
+            Arrays.sort(chars);
+            String sortChar = Arrays.toString(chars);
+            if(hashMap.containsKey(sortChar)){
+                int j = (int)hashMap.get(sortChar);
+                listResult.get(j).add(str);
+            }else {
+                hashMap.put(sortChar,k);
+                k++;
+                List<String> listTmp = new ArrayList<>();
+                listTmp.add(str);
+                listResult.add(listTmp);
+            }
+        }
+        return listResult;
+    }
 
+    /**
+     * 疑似最优解
+     * @param nums
+     * @return
+     */
     public static List<List<Integer>> threeSum(int[] nums) {
         System.out.println("start="+System.currentTimeMillis());
         List<List<Integer>> list = new ArrayList<>();
