@@ -24,11 +24,44 @@ public class ArrayAndStringSolution {
 //            System.out.println("list="+ list.toString());
 //        }
 
-        String[] strs= {"eat", "tea", "tan", "ate", "nat", "bat"};
-        List<List<String>> lists = groupAnagrams(strs);
-        for(List<String> list:lists){
-            System.out.println("list="+list.toString());
+//        String[] strs= {"eat", "tea", "tan", "ate", "nat", "bat"};
+//        List<List<String>> lists = groupAnagrams(strs);
+//        for(List<String> list:lists){
+//            System.out.println("list="+list.toString());
+//        }
+//        String s = "abcabcbb";
+        String s = "dvdf";
+        System.out.println("length="+lengthOfLongestSubstring(s));
+    }
+
+    public static int lengthOfLongestSubstring(String s) {
+        if(s==null||"".equals(s)){
+            return 0;
         }
+        char[] chars = s.toCharArray();
+        StringBuffer sbFinal= new StringBuffer();
+        StringBuffer sbTmp= new StringBuffer();
+        HashMap<Character,String> hashMapTmp = new HashMap();
+        for(char c:chars){
+            if(!hashMapTmp.containsKey(c)){
+                hashMapTmp.put(c,"any");
+                sbTmp.append(c);
+            }else {
+                if(sbTmp.length()>sbFinal.length()){
+                    sbFinal = sbTmp;
+                }
+                hashMapTmp = new HashMap<>();
+                hashMapTmp.put(c,"any");
+                sbTmp = new StringBuffer();
+                sbTmp.append(c);
+            }
+
+        }
+        if(sbTmp.length()>sbFinal.length()){
+            sbFinal=sbTmp;
+        }
+        System.out.println("sbFinal="+sbFinal);
+        return sbFinal.length();
     }
 
     public static List<List<String>> groupAnagrams(String[] strs) {
